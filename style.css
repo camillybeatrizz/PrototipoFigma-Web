@@ -1,0 +1,437 @@
+/* ESTILOS GLOBAIS E RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* Escolha uma fonte mais próxima do seu design. Ex: 'Montserrat', 'Lato' etc. */
+}
+
+:root {
+    /* Cores baseadas nos seus prints - ajuste os valores hexadecimais! */
+    --cor-fundo-principal: #1a1032; /* Um azul/roxo escuro para o fundo geral */
+    --cor-fundo-secao-escura: #231a3f; /* Um tom para seções com fundo escuro como Contato */
+    --cor-primaria-roxo: #7b3fef;   /* Roxo vibrante principal */
+    --cor-secundaria-lilas: #c1a2f0; /* Lilás claro para detalhes ou fundos de seção */
+    --cor-texto-claro: #ffffff;
+    --cor-texto-secundario: #e0e0e0; /* Um cinza claro/branco para textos menos importantes */
+    --cor-botao: #9f50ff; /* Cor para botões principais */
+    --cor-botao-hover: #8e46e2; /* Cor para hover de botões */
+}
+
+body {
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+}
+
+.container-geral { /* Você pode adicionar um div com essa classe envolvendo todo o conteúdo se quiser um max-width */
+    width: 90%;
+    max-width: 1280px; /* Largura similar à do seu design Figma */
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    font-weight: bold; /* Ajuste o peso da fonte conforme seu design */
+}
+
+h1 {
+    font-size: 3rem; /* Ajuste */
+    color: var(--cor-texto-claro);
+}
+
+h2 { /* Títulos de seção como "SOBRE MIM", "HABILIDADES" */
+    font-size: 2.2rem; /* Ajuste */
+    color: var(--cor-texto-claro); /* Ou var(--cor-primaria-roxo) se preferir */
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.5rem; /* Ajuste */
+    color: var(--cor-texto-claro); /* Ou var(--cor-secundaria-lilas) */
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--cor-texto-secundario);
+}
+
+a {
+    color: var(--cor-secundaria-lilas);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ESTILOS DO CABEÇALHO E NAVEGAÇÃO */
+header {
+    background-color: var(--cor-fundo-principal); /* Ou um pouco diferente se o header tiver outra cor */
+    padding: 1rem 0;
+    position: sticky; /* Para mantê-lo no topo ao rolar */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 6px 32px rgba(123,63,239,0.35); /* Sombra mais forte e roxa */
+}
+
+header .container-header {
+    display: flex;
+    justify-content: space-around; /* Ou space-between, dependendo do seu logo */
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px; /* Espaçamento entre itens do menu */
+}
+
+header nav ul li a {
+    color: var(--cor-texto-claro);
+    font-weight: bold;
+    font-size: 1rem; /* Ajuste */
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--cor-primaria-roxo);
+    text-decoration: none;
+}
+
+/* ESTILOS DA SEÇÃO HERO (APRESENTAÇÃO) */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo */
+    padding: 6rem 2rem; /* Aumenta o espaçamento interno */
+    min-height: 90vh; /* Aumenta a altura mínima da seção */
+    background-color: var(--cor-fundo-principal); /* Se for diferente do body */
+    gap: 4rem; /* Espaço entre os elementos da seção */
+    /* Se houver aquele padrão de grid de fundo, pode ser um background-image aqui */
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    margin-bottom: 1.5rem;
+    font-size: 4rem; /* Aumenta o tamanho do título */
+}
+
+.hero-content p {
+    font-size: 1.3rem; /* Aumenta o tamanho do texto */
+    margin-bottom: 2.5rem;
+    color: var(--cor-texto-secundario);
+}
+
+.botao {
+    display: inline-block;
+    background-color: var(--cor-botao);
+    color: var(--cor-texto-claro);
+    padding: 12px 30px;
+    border-radius: 5px; /* Ajuste o arredondamento */
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: var(--cor-botao-hover);
+    text-decoration: none;
+}
+
+.hero-imagem img {
+    width: 380px; /* Aumenta o tamanho da imagem */
+    height: 380px; /* Aumenta o tamanho da imagem */
+    border-radius: 50%;
+    object-fit: cover; /* Para a imagem não distorcer */
+    border: 8px solid var(--cor-primaria-roxo); /* Aumenta a borda na foto */
+}
+
+/* ESTILOS PARA SEÇÕES GENÉRICAS */
+section {
+    padding: 4rem 2rem; /* Espaçamento padrão para seções */
+}
+
+/* SEÇÃO SOBRE MIM */
+#sobre-mim {
+    background-color: var(--cor-secundaria-lilas); /* Fundo mais claro para esta seção */
+    color: var(--cor-fundo-principal); /* Texto escuro para contraste */
+}
+#sobre-mim h2 {
+    color: var(--cor-fundo-principal);
+}
+#sobre-mim p {
+    color: #333; /* Texto um pouco mais escuro */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Se o texto for centralizado */
+}
+
+#sobre-mim .sobre-mim-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+#sobre-mim figure {
+     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
+    background: none;
+    text-align: left;
+    gap: 1rem;
+}
+#sobre-mim figure img {
+    width: 60px;   /* Imagem ainda menor */
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--cor-primaria-roxo);
+    margin: 0;
+    display: block;
+}
+#sobre-mim figure figcaption {
+    font-weight: bold;
+    color: var(--cor-fundo-principal);
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+/* SEÇÃO HABILIDADES */
+#habilidades .habilidades-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Para quebrar em telas menores */
+    gap: 2rem;
+}
+#habilidades .hard-skills, #habilidades .soft-skills {
+    flex-basis: 45%; /* Cada um ocupa aprox. metade do espaço */
+    background-color: rgba(255,255,255,0.05); /* Fundo sutil para os blocos de skills */
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+#habilidades h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--cor-secundaria-lilas);
+}
+#habilidades ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os ícones/textos */
+    gap: 1.5rem; /* Espaço entre os itens de habilidade */
+}
+#habilidades .hard-skills li {
+    display: flex;
+    flex-direction: column; /* Ícone acima do texto */
+    align-items: center;
+    text-align: center;
+    width: 80px; /* Largura para cada item de hard skill */
+}
+#habilidades .hard-skills img {
+    width: 40px; /* Tamanho dos ícones */
+    height: 40px;
+    margin-bottom: 0.5rem;
+}
+#habilidades .soft-skills li {
+    background-color: var(--cor-primaria-roxo); /* Destaque para soft skills */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: var(--cor-texto-claro);
+}
+
+
+/* SEÇÃO PROJETOS, EXPERIÊNCIAS, CERTIFICADOS (ESTILO DE CARD SIMILAR) */
+.projetos-grid, .experiencias-grid, .certificados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo */
+    gap: 2rem;
+}
+
+.card-projeto, .card-experiencia, .card-certificado {
+    background-color: var(--cor-fundo-secao-escura); /* Cor de fundo dos cards */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-projeto:hover, .card-experiencia:hover, .card-certificado:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(123, 63, 239, 0.3); /* Sombra com a cor primária no hover */
+}
+
+.card-projeto img { /* Imagem no topo do card de projeto */
+    width: 100%;
+    height: 200px; /* Altura fixa para as imagens dos projetos */
+    object-fit: cover;
+    border-radius: 5px 5px 0 0; /* Arredonda cantos superiores se a imagem estiver colada no topo */
+    margin-bottom: 1rem;
+}
+.card-projeto h3, .card-experiencia h3, .card-certificado h3 {
+    color: var(--cor-secundaria-lilas); /* Título do card */
+    margin-bottom: 0.5rem;
+}
+/* Ajustes específicos se necessário */
+.card-experiencia p, .card-certificado p {
+    font-size: 0.9rem;
+}
+.card-experiencia p:first-of-type { /* Instituição na experiência */
+    font-style: italic;
+    color: var(--cor-secundaria-lilas);
+    margin-bottom: 0.3rem;
+}
+.card-projeto {
+    text-decoration: none; /* Remove underline padrão */
+    color: inherit;
+}
+
+.card-projeto:hover,
+.card-projeto:focus {
+    text-decoration: none; /* Garante que não aparece linha ao passar o mouse */
+    outline: none;
+    color: inherit;
+}
+
+.card-projeto h3,
+.card-projeto p {
+    text-decoration: none; /* Garante que títulos e textos não fiquem sublinhados */
+}
+
+/* SEÇÃO CONTATO */
+#contato {
+    background-color: var(--cor-fundo-secao-escura); /* Fundo escuro como na imagem */
+}
+#contato form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+#contato form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+#contato form input[type="text"],
+#contato form input[type="email"],
+#contato form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--cor-primaria-roxo);
+    background-color: rgba(255,255,255,0.1);
+    color: var(--cor-texto-claro);
+    border-radius: 5px;
+}
+#contato form input[type="text"]::placeholder,
+#contato form input[type="email"]::placeholder,
+#contato form textarea::placeholder {
+    color: var(--cor-texto-secundario);
+}
+#contato form .form-botoes {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start; /* Ou center */
+}
+.botao-secundario {
+    background-color: transparent;
+    border: 1px solid var(--cor-botao);
+    color: var(--cor-botao);
+}
+.botao-secundario:hover {
+    background-color: var(--cor-botao);
+    color: var(--cor-texto-claro);
+}
+
+.redes-sociais-contato, .redes-sociais-rodape {
+    text-align: center;
+    margin-top: 2rem;
+}
+.redes-sociais-contato ul, .redes-sociais-rodape ul {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.redes-sociais-contato img, .redes-sociais-rodape img {
+    width: 30px; /* Tamanho dos ícones sociais */
+    height: 30px;
+    transition: opacity 0.3s ease;
+}
+.redes-sociais-contato a:hover img, .redes-sociais-rodape a:hover img {
+    opacity: 0.7;
+}
+
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #120c24; /* Um tom ainda mais escuro para o rodapé */
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
+}
+footer p {
+    margin-bottom: 0.5rem;
+}
+footer .redes-sociais-rodape {
+    margin-bottom: 1rem; /* Espaço antes do texto de copyright */
+}
+
+/* AJUSTES BÁSICOS DE RESPONSIVIDADE (EXEMPLO) */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-imagem {
+        margin-top: 2rem;
+    }
+    .hero-imagem img {
+        width: 200px;
+        height: 200px;
+    }
+    #habilidades .habilidades-container {
+        flex-direction: column;
+    }
+    #habilidades .hard-skills, #habilidades .soft-skills {
+        flex-basis: 100%; /* Ocupa toda a largura */
+    }
+    header nav ul {
+        /* Aqui você implementaria um menu hambúrguer */
+        /* Por ora, pode apenas quebrar ou reduzir espaçamento */
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav ul li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+}
